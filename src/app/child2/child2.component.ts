@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
-
+import { AppService } from '../app.service';
 @Component({
   selector: 'app-child2',
   templateUrl: './child2.component.html',
@@ -8,7 +8,7 @@ import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 export class Child2Component implements OnInit {
   @Input('getItem') item:any[]=[];
   @Input('getItemChange') getItemChange = new EventEmitter();
-  constructor() { }
+  constructor(private serve:AppService) { }
 
   ngOnInit() {
   }

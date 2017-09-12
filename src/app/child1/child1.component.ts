@@ -1,4 +1,5 @@
 import { Component, OnInit ,EventEmitter,Output} from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-child1',
@@ -7,12 +8,14 @@ import { Component, OnInit ,EventEmitter,Output} from '@angular/core';
 })
 export class Child1Component implements OnInit {
  @Output('onCeate') onCeate = new EventEmitter();
-  constructor() { }
+  constructor(private serve:AppService) {
+
+   }
 
   ngOnInit() {
   }
   Onsubmit(event:Event){
-    event.preventDefault();
+     event.preventDefault();
     let form = <any>event.target;
     let model = {
       id:form.id.value,
@@ -23,5 +26,6 @@ export class Child1Component implements OnInit {
     form.id.value = null;
     form.name.value = null;
     form.email.value = null;
+
   }
 }

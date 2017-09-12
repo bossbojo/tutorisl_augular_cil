@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+  page = '';
   arr = [
     { id: 1, name: 'A', email: 'A@hotmail.com' },
     { id: 2, name: 'B', email: 'B@hotmail.com' },
@@ -23,6 +24,9 @@ export class AppComponent implements OnInit {
       console.log('a');
     })
 
+  }
+  setPage(pageow){
+    this.page = pageow;
   }
   async ngOnInit() {
     await this.getItem();

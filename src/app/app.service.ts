@@ -21,6 +21,7 @@ export class AppService{
         this.arr.push(data)
       }
       public deleteData(data){
+          
           this.arr.splice(this.arr.findIndex(x => x == data), 1);
       }
 }

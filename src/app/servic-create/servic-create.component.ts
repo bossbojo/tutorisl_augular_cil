@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-servic-create',
@@ -8,7 +9,7 @@ import { AppService } from '../app.service';
 })
 export class ServicCreateComponent implements OnInit {
 
-  constructor(private service:AppService) { }
+  constructor(private service:AppService,private route:Router) { }
 
   ngOnInit() {
   }
@@ -24,5 +25,6 @@ export class ServicCreateComponent implements OnInit {
    form.id.value = null;
    form.name.value = null;
    form.email.value = null;
+   this.route.navigate(['/','show'])
  }
 }

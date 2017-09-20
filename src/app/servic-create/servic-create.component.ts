@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
-import { Router } from '@angular/router';
+import { Router , ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-servic-create',
@@ -8,8 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./servic-create.component.css']
 })
 export class ServicCreateComponent implements OnInit {
-
-  constructor(private service:AppService,private route:Router) { }
+  paramat;
+  name;
+  constructor(private service:AppService,private route:Router,private param:ActivatedRoute) { 
+    
+    this.param.params.forEach(param => {
+      this.paramat = param.id;
+    });
+    this.param.data.forEach(param => {
+      this.name = param.name;
+      console.log(this.name);
+      
+    });
+  }
 
   ngOnInit() {
   }
@@ -25,6 +36,6 @@ export class ServicCreateComponent implements OnInit {
    form.id.value = null;
    form.name.value = null;
    form.email.value = null;
-   this.route.navigate(['/','show'])
+   this.route.navigate(['/','show'],{ queryParams: { hello:'sendtopage'} });
  }
 }

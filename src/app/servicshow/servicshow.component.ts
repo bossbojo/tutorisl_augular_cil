@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { transition,trigger,style,state,animate} from '@angular/animations';
 import { AppAnimation } from '../app.animation';
+import { Router,ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-servicshow',
   templateUrl: './servicshow.component.html',
@@ -11,8 +13,12 @@ import { AppAnimation } from '../app.animation';
 export class ServicshowComponent implements OnInit {
   item: any;
   btn = 'active';
-  constructor(private service: AppService) {
+  hello;
+  constructor(private service: AppService,private getpa:ActivatedRoute) {
     this.item = this.service.getData;
+    this.getpa.queryParams.forEach((res) => {
+      this.hello = res.hello;
+    })
   }
 
   ngOnInit() {

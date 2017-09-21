@@ -2,18 +2,20 @@
   <div class="panel panel-primary">
     <div class="panel-heading">Guard</div>
     <div class="panel-body">
-      <div class="form-group">
-        <label for="">Post message</label>
-        <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="input text...." #text></textarea>
-        <div class="row">
-          <div class="col-sm-3">
-                hello:  {{ hello_user }}
-          </div>
-          <div class="col-sm-3 col-sm-offset-9">
-            <button class="btn btn-primary" (click)="Onsubmit(text.value)">Post massage</button>
-          </div>
-        </div>
-      </div>
+      <form (click)="Onsubmit(massage)">
+          <div class="form-group">
+              <label for="">Post message</label>
+              <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="input text...." (keyup)="setValue(massage.value)" #massage ></textarea>
+              <div class="row">
+                <div class="col-sm-3">
+                      hello:  {{ hello_user }}
+                </div>
+                <div class="col-sm-3 col-sm-offset-9">
+                  <button class="btn btn-primary" (click)="Onsubmit(massage)">Post massage</button>
+                </div>
+              </div>
+            </div>
+      </form>
     </div>
   </div>
 </div>

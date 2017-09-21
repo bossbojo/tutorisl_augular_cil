@@ -1,4 +1,4 @@
-import { Routes,RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { AppGuard } from './app.guard';
 
 import { Child1Component } from './child1/child1.component';
@@ -9,13 +9,13 @@ import { GuardComponent } from './guard/guard.component';
 
 
 
-const Routes:Routes = [
-    { path: 'child1' ,component : Child1Component},
-    { path: 'child2' ,component : Child2Component},
-    { path: 'create' ,component : ServicCreateComponent},
-    { path: 'create/:id' ,component : ServicCreateComponent ,data:{ name : 'hello'}},
-    { path: 'show' ,component : ServicshowComponent },
-    { path: 'guard' ,component : GuardComponent ,canActivate:[AppGuard]},
+const Routes: Routes = [
+    { path: 'child1', component: Child1Component, canActivate: [AppGuard]  },
+    { path: 'child2', component: Child2Component, canActivate: [AppGuard]  },
+    { path: 'create', component: ServicCreateComponent , canActivate: [AppGuard] },
+    { path: 'create/:id', component: ServicCreateComponent, data: { name: 'hello' } , canActivate: [AppGuard]  },
+    { path: 'show', component: ServicshowComponent, canActivate: [AppGuard]  },
+    { path: 'guard', component: GuardComponent, canActivate: [AppGuard] },
 ]
 
 
